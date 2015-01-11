@@ -1,8 +1,9 @@
+import os
 import logging
 
 from lxml import etree as et
 
-import uml2pythonlib.utils
+from uml2pythonlib.utils import npath
 from uml2pythonlib.mappers import pymapper
 from uml2pythonlib import maintenance
 
@@ -127,7 +128,7 @@ def generate_class_modules(outdir, doc, classmap):
 
 def cli_options(parser):
     def pathtype(text):
-        return uml2pythonlib.utils.npath(text)
+        return npath(text)
     parser.add_argument("outdir", type=pathtype, help="output directory")
     parser.add_argument("umlfile", type=pathtype, help="uml xml file")
 

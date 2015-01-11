@@ -20,14 +20,6 @@ def parse_args(args, mainfile, packages_list=None):
     g.add_argument('-q', '--quiet', dest="loglevel", action='store_const', const=logging.WARN)
     common_parser.add_argument('--log', dest='logfile', default=None, help='logging to file')
 
-    common_parser.add_argument('--prefix', type=pathtype, help='destination prefix', default=utils.npath('exe'))
-    common_parser.add_argument('--scriptsdir', type=pathtype, help='scripts dir', default=utils.npath('scripts'))
-    common_parser.add_argument('--downloads', type=pathtype, help='download cache', default=utils.npath('downloads'))
-    common_parser.add_argument('--buildroot', type=pathtype, help='build root dir', default=utils.npath('build'))
-    common_parser.add_argument('--build', help='build host tag', default=ext.ident3.system_indentify())
-    common_parser.add_argument('--target', help='build target tag', default=ext.ident3.system_indentify())
-
-
     class MyFormatter(argparse.ArgumentDefaultsHelpFormatter, argparse.RawDescriptionHelpFormatter): pass
     parser = argparse.ArgumentParser(parents=[common_parser,], formatter_class=MyFormatter) 
 
